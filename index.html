@@ -39,6 +39,23 @@
     background: var(--cream); box-shadow: 0 0 60px rgba(0,0,0,0.4);
   }
 
+  @media (min-width: 640px) {
+    .app-shell { max-width: 640px; }
+  }
+  @media (min-width: 900px) {
+    .app-shell { max-width: 1200px; }
+    .pages { display: flex; }
+    #page-orders { flex: 1.2; border-right: 1.5px solid var(--parchment); }
+    #page-new, #page-settings { flex: 1; }
+    #page-orders.active, #page-new.active, #page-settings.active { display: flex; flex-direction: column; }
+    .orders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .orders-grid .order-card { margin-bottom: 0; }
+    #orders-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    #orders-list .order-card { margin-bottom: 0; }
+    .bottom-nav { justify-content: center; gap: 1rem; }
+    .nav-btn { flex: 0 0 120px; }
+  }
+
   /* ── Top Bar ── */
   .top-bar {
     background: var(--sepia);
@@ -363,6 +380,17 @@
 
   @media (min-width: 500px) {
     .app-shell { margin: 1rem auto; height: calc(100dvh - 2rem); border-radius: 24px; overflow: hidden; }
+  }
+
+  @media (min-width: 900px) {
+    .app-shell { margin: 1.5rem auto; height: calc(100dvh - 3rem); }
+    /* Modal becomes a centered dialog on desktop */
+    .modal-overlay { align-items: center; }
+    .modal-sheet {
+      border-radius: 20px; max-height: 85dvh;
+      max-width: 560px; padding-bottom: 1.25rem;
+    }
+    @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
   }
 </style>
 </head>
